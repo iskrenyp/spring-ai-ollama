@@ -1,0 +1,34 @@
+buildscript {
+  ext {
+    springRetryVersion = '2.0.3'
+    springAiVersion = '0.8.1-SNAPSHOT'
+    springBootVersion = '3.2.0'
+  }
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+  }
+}
+apply plugin: 'groovy'
+apply plugin: 'org.springframework.boot'
+group 'com.iskrenyp'
+repositories {
+  mavenCentral()
+  maven { url 'https://repo.spring.io/snapshot' }
+}
+dependencies {
+  implementation 'org.apache.groovy:groovy:4.0.14'
+  implementation "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+  implementation "org.springframework.boot:spring-boot-starter-jdbc:$springBootVersion"
+  implementation "org.springframework.retry:spring-retry:$springRetryVersion"
+  // https://mvnrepository.com/artifact/org.springframework.ai/spring-ai-retry
+  implementation "org.springframework.ai:spring-ai-retry:$springAiVersion"
+  runtimeOnly "org.postgresql:postgresql"
+  implementation "org.springframework.ai:spring-ai-pgvector-store-spring-boot-starter:$springAiVersion"
+  implementation "org.springframework.ai:spring-ai-ollama-spring-boot-starter:$springAiVersion"
+}
+wrapper {
+  gradleVersion = '7.4.1'
+}

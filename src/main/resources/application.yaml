@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/vector_store
+    username: postgres
+    password: postgres
+  ai:
+    vectorstore:
+      pgvector:
+        index-type: none
+        distance-type: negative_inner_product
+    ollama:
+      base-url: http://localhost:11434/
+      chat:
+        options:
+          model: codellama
+      embedding:
+        options:
+          model: codellama
