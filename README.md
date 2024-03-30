@@ -17,7 +17,11 @@ Clone the project repo and cd into the project folder.
 Start terminal:
 ```bash
 sdk env 
+```
 
+and also
+
+```bash
 gradle wrapper
 ```
 
@@ -62,7 +66,7 @@ for you. Like, for example:
 
 or
 
-[plot](./demo/demo_qa_2.png)
+![plot](./demo/demo_qa_2.png)
 
 
 
