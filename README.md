@@ -1,7 +1,10 @@
-# Self-aware web app with Spring AI, Ollama and Docker
+# Simple RAG with Spring AI, Ollama and Docker
 
-Simple RAG (Retrieval-Augmented-Generation) implementation, using Spring AI, Ollama (with codellama) 
-and Docker.
+Simple RAG (Retrieval-Augmented-Generation) implementation, using Spring AI, Ollama (with codellama),
+PG vector store and Docker. Everything is running locally (depending on your hardware).
+
+In this example, it s a self-aware app, which, when used to ask codellama a question, it will have its own
+source code stuffed in the prompted with the user query.
 
 ## Prerequisites
 * SDKMan installed
@@ -18,7 +21,7 @@ sdk env
 gradle wrapper
 ```
 
-To spin up the containers (in detached mode) from the docker-compose.yaml, run:
+To spin up the containers (Postgres vector db and ollama) in detached mode from the docker-compose.yaml, run:
 
 ```bash
 docker-compose up -d
@@ -50,7 +53,16 @@ This endpoint will turn each class from this repository into a known (to codella
 and persist it into the pg vector store. This process may take some time, depending on your hardware.
 
 The Spring app logs will output detailed logs about which file is being vectorised. Once, all embeddings
-are saved, you can start asking questions to the self-aware app:
+are saved, you can start asking questions to the self-aware app.
+
+Tests were not added intentionally. You can actually play with codellama and ask it to write the tests
+for you. Like, for example:
+
+![plot](./demo/demo_qa_1.png)
+
+or
+
+[plot](./demo/demo_qa_2.png)
 
 
 

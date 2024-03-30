@@ -45,7 +45,7 @@ class ChatService {
   private Message getDefaultSystemMessage(String message) {
     SearchRequest searchRequest = SearchRequest
       .defaults()
-      .withTopK(11)
+      .withTopK(13)
       .withQuery(message)
     List<Document> similarDocuments = vectorStore.similaritySearch(searchRequest)
 
